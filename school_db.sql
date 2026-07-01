@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict FlJinDmmKBfjA6nTTywawCBtLzCKGlSYEuteTt0uCE3enlko3EDI3Hw0cZB0JQj
+\restrict kQmH6JgI4IKEUDkp9jx6h4WGTmac7VFeMwEOnhHOsU7G8a5pbgLI4uXtIQn6Ba5
 
 -- Dumped from database version 16.14
 -- Dumped by pg_dump version 16.14
@@ -22,17 +22,10 @@ SET row_security = off;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
-CREATE SCHEMA public;
+-- *not* creating schema, since initdb creates it
 
 
 ALTER SCHEMA public OWNER TO postgres;
-
---
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
---
-
-COMMENT ON SCHEMA public IS 'standard public schema';
-
 
 --
 -- Name: bıgınt; Type: DOMAIN; Schema: public; Owner: postgres
@@ -74,12 +67,12 @@ ALTER DOMAIN public.year OWNER TO postgres;
 
 CREATE FUNCTION public._group_concat(text, text) RETURNS text
     LANGUAGE sql IMMUTABLE
-    AS $_$
-SELECT CASE
-  WHEN $2 IS NULL THEN $1
-  WHEN $1 IS NULL THEN $2
-  ELSE $1 || ', ' || $2
-END
+    AS $_$
+SELECT CASE
+  WHEN $2 IS NULL THEN $1
+  WHEN $1 IS NULL THEN $2
+  ELSE $1 || ', ' || $2
+END
 $_$;
 
 
@@ -352,6 +345,11 @@ COPY public.books (id, title, author, price, category, description) FROM stdin;
 8	Machine Learning	Andrew Ng	300000.00	Artificial Intelligence	Sun'iy intellekt asoslari
 9	Operating Systems	Abraham Silberschatz	270000.00	Computer Science	Operatsion tizimlar
 10	Database Systems	Elmasri	290000.00	Database	\N
+11	Java Dasturlash	Aziza Tursunova	160000.00	Programming	Java dasturlash bo‘yicha qo‘llanma
+12	Data Science	Shahzoda Yuldasheva	280000.00	Data Analysis	Ma'lumotlarni tahlil qilish asoslari
+13	Artificial Intelligence	Jasur Qodirov	320000.00	Artificial Intelligence	Sun'iy intellekt va mashina o‘rganish
+14	Cybersecurity Basics	Malika Ismoilova	190000.00	Security	Kiberxavfsizlik asoslari
+15	Cloud Computing	Bekzod Nazarov	210000.00	Cloud Technology	Bulutli hisoblash texnologiyalari
 \.
 
 
@@ -370,6 +368,11 @@ COPY public.students (id, first_name, last_name, age, city, scholarship) FROM st
 8	Bekzod	Nazarov	23	Nukus	900000.00
 9	Shahzoda	Yuldasheva	18	Jizzax	400000.00
 10	Akmal	Saidov	21	Qarshi	750000.00
+11	Sardor	Karimov	20	Toshkent	600000.00
+12	Nilufar	Rahimova	19	Samarqand	550000.00
+13	Jasur	Tursunov	21	Buxoro	700000.00
+14	Malika	Ergasheva	22	Andijon	800000.00
+15	Aziza	Ismoilova	18	Namangan	450000.00
 \.
 
 
@@ -494,5 +497,5 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 -- PostgreSQL database dump complete
 --
 
-\unrestrict FlJinDmmKBfjA6nTTywawCBtLzCKGlSYEuteTt0uCE3enlko3EDI3Hw0cZB0JQj
+\unrestrict kQmH6JgI4IKEUDkp9jx6h4WGTmac7VFeMwEOnhHOsU7G8a5pbgLI4uXtIQn6Ba5
 
